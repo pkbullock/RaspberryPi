@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 from time import sleep
 from sense_hat import SenseHat
 
@@ -43,3 +45,7 @@ except:
     # so only use it once your code is working  
 
     print "Other error or exception occurred!" 
+
+finally:
+    # Clean up
+    sense.clear()
