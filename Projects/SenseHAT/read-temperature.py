@@ -14,6 +14,9 @@ try:
     
     # API for SenseHAT is http://pythonhosted.org/sense-hat/api/#environmental-sensors
 
+    # Note - The SenseHat is close to the Pi CPU therefore the temperature can read higher than expected
+    #        Consider using a ribbon cable to move the SenseHat away from the Pi.
+
     temp_hum = sense.get_temperature_from_humidity()
     print("Temperature from Humidty Sensor %s C" % temp_hum)
 
