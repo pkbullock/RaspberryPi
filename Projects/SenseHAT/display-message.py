@@ -7,7 +7,12 @@ sense = SenseHat()
 
 try:
 
-    sense.show_message("Hello, my name is HAL")
+    # Examples
+    # More examples can be found at: https://www.raspberrypi.org/learning/getting-started-with-the-sense-hat/worksheet/
+    
+    #sense.show_message("Hello, my name is HAL")
+    
+    sense.show_message("Hello, my name is HAL", scroll_speed=0.05, text_colour=[255,255,0])
 
     
 
