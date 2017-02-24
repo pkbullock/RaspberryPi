@@ -35,7 +35,7 @@ except:
 
     print "Other error or exception occurred!" 
 
-finally:
+#finally:
     # Clean up
     # sense.clear() - cleans display
     # therefore clean up nothing
