@@ -1,0 +1,4 @@
+# Primary Connection String IOT Hub: 
+
+[Connection]
+IOTHub = HostName=<mydevice>.azure-devices.net;DeviceId=<my-device-id>;SharedAccessKey=<key>
