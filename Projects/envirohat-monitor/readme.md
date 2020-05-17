@@ -26,3 +26,15 @@ pip install azure-iot-device
 
 
 Using the Python Device SDK for IoT Hub:  https://github.com/Azure/azure-iot-sdk-python
+
+[https://janakiev.com/blog/python-background/](https://janakiev.com/blog/python-background/)
+
+## Commands
+
+```bash
+
+nohup python /path/to/montor.py > output.log &
+nohup python -u ./montor.py > output.log &
+
+
+```
