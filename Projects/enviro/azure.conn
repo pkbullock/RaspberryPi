@@ -1,0 +1,4 @@
+# Primary Connection String IOT Hub: 
+
+[Connection]
+IOTHub = HostName=XXXXHub.azure-devices.net;DeviceId=PiZeroW3d;SharedAccessKey=<key>
