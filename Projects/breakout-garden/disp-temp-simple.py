@@ -208,9 +208,6 @@ def main():
             raw_data = bmp280.get_pressure()
             save_data(1, raw_data)
             display_everything()
-            raw_data = bmp280.get_humidity()
-            save_data(2, raw_data)
-            display_everything()
             pms_data = None
             time.sleep(sleepFor)
                 
