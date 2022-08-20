@@ -3,7 +3,7 @@ from trilobot.simple_controller import SimpleController
 
 
 
-def create_8bitdo_zero2_controller():
+def create_8bitdo_zero2_controller(stick_deadzone_percent=0.2):
     """ Create a controller class for the 8BitDo Zero 2 gamepad controller.
     """
     controller = SimpleController("8BitDo Zero 2 gamepad")
@@ -25,10 +25,10 @@ def create_8bitdo_zero2_controller():
     controller.register_axis_as_button("Up", 1, 0, 32768)
     controller.register_axis_as_button("Down", 1, 65535, 32768)
 
-    controller.register_axis_as_button("L_Left", 0, 0, 32768)
-    controller.register_axis_as_button("L_Right", 0, 65535, 32768)
-    controller.register_axis_as_button("L_Up", 1, 0, 32768)
-    controller.register_axis_as_button("L_Down", 1, 65535, 32768)
+    controller.register_axis_as_button("L_Left", 0, 0, 127)
+    controller.register_axis_as_button("L_Right", 0, 255, 127)
+    controller.register_axis_as_button("L_Up", 1, 0, 127)
+    controller.register_axis_as_button("L_Down", 1, 255, 127)
     
     
     #controller.register_axis_as_button("Left", 0, 0, 32768)
@@ -40,11 +40,12 @@ def create_8bitdo_zero2_controller():
     #controller.register_axis("LX", 0, 0, 65535)
     #controller.register_axis("LY", 1, 0, 65535)
     
-    #controller.register_axis("LX", 0, 0, 127)
-    #controller.register_axis("RX", 0, 255, 127)
+    controller.register_axis("LX", 0, 0, 127, deadzone_percent=stick_deadzone_percent)
+    controller.register_axis("RX", 1, 255, 127, deadzone_percent=stick_deadzone_percent)
     
-    #controller.register_axis("LY", 0, 0, 127)
-    #controller.register_axis("RY", 1, 255, 127)
+    controller.register_axis("LY", 0, 0, 127, deadzone_percent=stick_deadzone_percent)
+    
+    controller.register_axis("RY", 1, 255, 127, deadzone_percent=stick_deadzone_percent)
     
     
     
@@ -85,7 +86,7 @@ def create_xbox_one_wireless_controller(stick_deadzone_percent=0.2):
     controller.register_trigger_axis("RT", 5, 0, 32768, alt_name="R2")
     return controller
 
-def choose_controller():
+def choose_controller(preselect=-1):
     """ Present the user with a selection menu for pre-configured controllers.
     """
     controller_list = [("8BitDo Zero 2", create_8bitdo_zero2_controller),
@@ -96,7 +97,12 @@ def choose_controller():
         print("  ", i, ") ", controller_list[i][0], sep="")
 
     try:
-        controller_id = int(input("Select controller: "))
+        controller_id = -1
+        if preselect > -1: 
+            controller_id = int(preselect)
+        else:
+            controller_id = int(input("Select controller: "))
+            
         if controller_id < 0 or controller_id >= len(controller_list):
             print("Not a valid controller. Exiting")
             quit()
