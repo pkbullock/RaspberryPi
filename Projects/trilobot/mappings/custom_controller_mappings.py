@@ -9,21 +9,45 @@ def create_8bitdo_zero2_controller():
     controller = SimpleController("8BitDo Zero 2 gamepad")
 
     # Button and axis registrations
-    controller.register_button("A", 304)
-    controller.register_button("B", 305)
+    controller.register_button("A", 305)
+    controller.register_button("B", 304)
     controller.register_button("X", 307)
-    controller.register_button("Y", 308)
-    controller.register_button("Start", 315)
-    controller.register_button("Select", 314)
-    controller.register_button("L1", 310, alt_name="LB")
-    controller.register_button("R1", 311, alt_name="RB")
-    controller.register_axis_as_button("Left", 0, 0, 127)
-    controller.register_axis_as_button("Right", 0, 255, 127)
-    controller.register_axis_as_button("Up", 1, 0, 127)
-    controller.register_axis_as_button("Down", 1, 255, 127)
+    controller.register_button("Y", 306)
+    
+    controller.register_button("Start", 311)
+    controller.register_button("Select", 310)
+    
+    controller.register_button("L1", 308, alt_name="LB")
+    controller.register_button("R1", 309, alt_name="RB")
+    
+    controller.register_axis_as_button("Left", 0, 0, 32768)
+    controller.register_axis_as_button("Right", 0, 65535, 32768)
+    controller.register_axis_as_button("Up", 1, 0, 32768)
+    controller.register_axis_as_button("Down", 1, 65535, 32768)
 
-    controller.register_axis("LX", 0, 0, 256)
-    controller.register_axis("LY", 1, 0, 256)
+    controller.register_axis_as_button("L_Left", 0, 0, 32768)
+    controller.register_axis_as_button("L_Right", 0, 65535, 32768)
+    controller.register_axis_as_button("L_Up", 1, 0, 32768)
+    controller.register_axis_as_button("L_Down", 1, 65535, 32768)
+    
+    
+    #controller.register_axis_as_button("Left", 0, 0, 32768)
+    #controller.register_axis_as_button("Right", 0, 65535, 32768)
+    
+    #controller.register_axis_as_button("Up", 1, 0, 32768)
+    #controller.register_axis_as_button("Down", 1, 65535, 32768)
+
+    #controller.register_axis("LX", 0, 0, 65535)
+    #controller.register_axis("LY", 1, 0, 65535)
+    
+    #controller.register_axis("LX", 0, 0, 127)
+    #controller.register_axis("RX", 0, 255, 127)
+    
+    #controller.register_axis("LY", 0, 0, 127)
+    #controller.register_axis("RY", 1, 255, 127)
+    
+    
+    
     return controller
 
 

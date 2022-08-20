@@ -92,17 +92,42 @@ while True:
                 # Have the left stick's Y axis control the left motor, and the right stick's Y axis control the right motor
                 ly = controller.read_axis("LY")
                 ry = controller.read_axis("RY")
+                
                 tbot.set_left_speed(-ly)
                 tbot.set_right_speed(-ry)
+                
             else:
                 # Have the left stick control both motors
-                lx = controller.read_axis("LX")
-                ly = 0 - controller.read_axis("LY")
-                tbot.set_left_speed(ly + lx)
-                tbot.set_right_speed(ly - lx)
+               
+                if controller.read_button("Up"):
+                    print("Forward")
+                    tbot.set_left_speed(1)
+                    tbot.set_right_speed(1)
+                if controller.read_button("Down"):
+                    print("Backwards")
+                    tbot.set_left_speed(-1)
+                    tbot.set_right_speed(-1)
+                if controller.read_button("Left"):
+                    print("Left")
+                    tbot.set_left_speed(1)
+                    tbot.set_right_speed(-1)
+                if controller.read_button("Right"):
+                    print("Right")
+                    tbot.set_left_speed(-1)
+                    tbot.set_right_speed(1)
+                if controller.read_button("L_Right"):
+                    print("Right2")
+                    
+                #lx = controller.read_axis("LX")
+                #ly = 0 - controller.read_axis("LY")
+                
+                #tbot.set_left_speed(ly + lx)
+                #tbot.set_right_speed(ly - lx)
+                
         except ValueError:
             # Cannot find 'LX', 'LY', or 'RY' on this controller
             tbot.disable_motors()
+            print("Tank steer value error")
 
         # Run a rotating rainbow effect on the RGB underlights
         for led in range(NUM_UNDERLIGHTS):
