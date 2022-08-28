@@ -2,4 +2,4 @@
 
 DATE=$(date +"%Y-%m-%d_%H%M")
 
-raspistill -n -o /home/pi/Pictures/Plant-$DATE.jpg
+raspistill -n -o /home/pi/Pictures/Photo-$DATE.jpg
