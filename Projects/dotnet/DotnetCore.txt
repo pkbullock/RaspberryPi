@@ -1,0 +1,28 @@
+
+wget https://dotnet.microsoft.com/download/dotnet-core/scripts/v1/dotnet-install.sh
+chmod +x dotnet-install.sh
+
+# Ignore warnings
+./dotnet-install.sh --channel Current --architecture arm --install-dir ~/cli
+
+# Allows running dotnet anywhere - thanks to this article XXX
+sudo nano .profile
+export DOTNET_ROOT=$HOME/cli
+export PATH=$PATH:$HOME/cli
+
+
+
+In Documents, use git clone https://github.com/pnp/pnpcore.git
+nano ~/Documents/pnpcore/src/samples/Demo.RPi/appsettings.json
+# Update according to article
+cd ~/Documents/pnpcore/src/samples/Demo.RPi
+
+# Settings File Example
+
+dotnet build
+dotnet run
+
+
+references:
+
+https://docs.microsoft.com/en-gb/dotnet/core/tools/dotnet-install-script
