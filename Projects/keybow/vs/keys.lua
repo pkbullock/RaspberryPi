@@ -1,4 +1,7 @@
 require "keybow"
+require "layouts/scottish-summit"
+
+
 -- require "layouts/default" -- Numberpad
 
 -- Custom layouts (uncomment to enable) --
@@ -12,4 +15,5 @@ require "keybow"
 -- require "layouts/mini" -- Keybow MINI example layout
 -- require "layouts/mini_volume" -- Keybow MINI volume controls
 -- require "layouts/mini_playback" -- Keybow MINI media playback controls
-require "layouts/visualstudio" -- Visual Studio Code and Visual Studio
+
+-- require "layouts/visualstudio" -- Visual Studio Code and Visual Studio
