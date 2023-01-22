@@ -20,7 +20,7 @@ camera.resolution = (2592, 1944)
 camera.framerate = 30
 
 # Set the directory for storing the photos
-path = '/path/to/save/photos/'
+path = '/home/pi/Pictures'
 
 # Calculate the total number of photos based on hours
 total_photos = int(args.hours * 60)
@@ -32,10 +32,35 @@ for i in range(total_photos):
 
 camera.stop()
 
+# With Pi Cam
+
+from picamera2 import Picamera2
+
+picam2 = Picamera2()
+picam2.configure("still")
+picam2.start()
+
+# Give time for Aec and Awb to settle, before disabling them
+time.sleep(1)
+picam2.set_controls({"AeEnable": False, "AwbEnable": False, "FrameRate": 1.0})
+# And wait for those settings to take effect
+time.sleep(1)
+
+start_time = time.time()
+for i in range(1, 51):
+    r = picam2.capture_request()
+    r.save("main", f"image{i}.jpg")
+    r.release()
+    print(f"Captured image {i} of 50 at {time.time() - start_time:.2f}s")
+
+
+picam2.stop()
+
+
 
 # With threading
 
-import libcamera
+
 import blinkt
 import time
 import sys
