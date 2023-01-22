@@ -38,14 +38,12 @@ def light_led():
         # Light up the first LED while the picture is being captured
         blinkt.set_pixel(i, 255, 127, 0)
         blinkt.show()
-        time.sleep(0.25)
+        time.sleep(0.5)
 
 def reset_led():
-    for i in range(1,8):
-        # Light up the first LED while the picture is being captured
-        blinkt.set_pixel(i, 0, 0, 0)
-        
+    blinkt.set_all(0, 0, 0)    
     blinkt.show()
+    blinkt.clear()
 
 
 # Take a photo every minute
