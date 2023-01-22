@@ -26,13 +26,6 @@ path = '/home/pi/Pictures'
 # Set the brightness of the LEDs
 blinkt.set_brightness(0.1)
 
-# Take a photo every minute
-for i in range(total_photos):
-
-# Calculate the total number of photos based on hours
-    camera.capture(path + 'photo' + str(i) + '.jpg')
-
-
 # Give time for Aec and Awb to settle, before disabling them
 time.sleep(1)
 picam2.set_controls({"AeEnable": False, "AwbEnable": False, "FrameRate": 1.0})
