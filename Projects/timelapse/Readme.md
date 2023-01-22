@@ -36,3 +36,6 @@ https://www.raspberrypi.com/documentation/computers/camera_software.html#common-
 > Note: this is installed on raspberrypi images so this would only update it
 
 sudo apt install -y python3-picamera2
+
+Examples:
+https://github.com/raspberrypi/picamera2/tree/main/examples
