@@ -34,16 +34,11 @@ picam2.set_controls({"AeEnable": False, "AwbEnable": False, "FrameRate": 1.0})
 time.sleep(1)
 
 def light_led():
-    for i in range(total_photos):
+    for i in range(0,7):
         # Light up the first LED while the picture is being captured
-        blinkt.set_pixel(0, 255, 0, 0)
+        blinkt.set_pixel(i, 255, 127, 0)
         blinkt.show()
-        time.sleep(4)
-        # Turn off the first LED
-        blinkt.set_pixel(0, 0, 0, 0)
-        blinkt.show()
-        # Wait for 0.5 seconds before taking the next picture
-        time.sleep(0.5)
+        time.sleep(0.25)
 
 # Take a photo every minute
 for i in range(total_photos):
