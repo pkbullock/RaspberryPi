@@ -19,6 +19,7 @@ picam2 = Picamera2()
 picam2.configure("still")
 picam2.start()
 
+# Calculate the total number of photos based on hours
 total_photos = int(args.hours * 60)
 
 path = '/home/pi/Pictures'
@@ -31,9 +32,6 @@ time.sleep(1)
 picam2.set_controls({"AeEnable": False, "AwbEnable": False, "FrameRate": 1.0})
 # And wait for those settings to take effect
 time.sleep(1)
-
-# Calculate the total number of photos based on hours
-total_photos = int(hours * 60)
 
 def light_led():
     for i in range(total_photos):
@@ -59,6 +57,8 @@ for i in range(total_photos):
     r.release()
     print(f"Captured image {i}")
     t1.join()
+
+    time.sleep(60)
 
 
 picam2.stop()
