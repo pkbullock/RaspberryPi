@@ -34,11 +34,19 @@ picam2.set_controls({"AeEnable": False, "AwbEnable": False, "FrameRate": 1.0})
 time.sleep(1)
 
 def light_led():
-    for i in range(0,7):
+    for i in range(1,8):
         # Light up the first LED while the picture is being captured
         blinkt.set_pixel(i, 255, 127, 0)
         blinkt.show()
         time.sleep(0.25)
+
+def reset_led():
+    for i in range(1,8):
+        # Light up the first LED while the picture is being captured
+        blinkt.set_pixel(i, 0, 0, 0)
+        
+    blinkt.show()
+
 
 # Take a photo every minute
 for i in range(total_photos):
@@ -53,6 +61,7 @@ for i in range(total_photos):
     print(f"Captured image {i}")
     t1.join()
 
+    reset_led()
     time.sleep(60)
 
 
