@@ -31,6 +31,8 @@ https://datasheets.raspberrypi.com/camera/raspberry-pi-camera-guide.pdf
 
 https://www.raspberrypi.com/documentation/computers/camera_software.html#common-command-line-options
 
+https://docs.arducam.com/Raspberry-Pi-Camera/Native-camera/PiCamera2-User-Guide/
+
 # Setup
 
 > Note: this is installed on raspberrypi images so this would only update it
