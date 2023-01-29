@@ -45,22 +45,32 @@ def reset_led():
     blinkt.show()
     blinkt.clear()
 
+def main():
 
-# Take a photo every minute
-for i in range(total_photos):
-    # start the thread for the leds
-    t1 = Thread(target = light_led)
-    t1.start()
-    
-    # Capture the picture
-    r = picam2.capture_request()
-    r.save("main", f"tl_photo{str(i)}.jpg")
-    r.release()
-    print(f"Captured image {i}")
-    t1.join()
+     # The main loop
+    try:
+        while True:
+            # Take a photo every minute
+            for i in range(total_photos):
+                # start the thread for the leds
+                t1 = Thread(target = light_led)
+                t1.start()
+                
+                # Capture the picture
+                r = picam2.capture_request()
+                r.save("main", f"tl_photo{str(i)}.jpg")
+                r.release()
+                print(f"Captured image {i}")
+                t1.join()
 
-    reset_led()
-    time.sleep(60)
+                reset_led()
+                print(f"Waiting for 60 seconds...")
+                time.sleep(60)
+     
+     # Exit cleanly
+    except KeyboardInterrupt:
+        picam2.stop()
+        sys.exit(0)
 
-
-picam2.stop()
+if __name__ == "__main__":
+    main()
