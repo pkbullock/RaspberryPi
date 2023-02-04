@@ -29,12 +29,12 @@ blinkt.set_brightness(0.1)
 
 # Give time for Aec and Awb to settle, before disabling them
 time.sleep(1)
-picam2.set_controls({"AeEnable": False, "AwbEnable": False, "FrameRate": 1.0, "AfMode": 0, "LensPosition": 0.0})
+picam2.set_controls({"AeEnable": False, "AwbEnable": False, "FrameRate": 1.0})
 # And wait for those settings to take effect
 time.sleep(1)
 
 def light_led():
-    for i in range(1,8):
+    for i in range(0,7):
         # Light up the first LED while the picture is being captured
         blinkt.set_pixel(i, 255, 127, 0)
         blinkt.show()
