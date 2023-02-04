@@ -5,6 +5,8 @@ import sys
 from threading import Thread
 from picamera2 import Picamera2
 
+print("Ensure its focused with: libcamera-still --autofocus-on-capture -o test.jpg")
+
 # Create the parser
 parser = argparse.ArgumentParser(description='Take timelapse photos')
 
@@ -34,7 +36,7 @@ picam2.set_controls({"AeEnable": False, "AwbEnable": False, "FrameRate": 1.0})
 time.sleep(1)
 
 def light_led():
-    for i in range(0,7):
+    for i in range(0,8):
         # Light up the first LED while the picture is being captured
         blinkt.set_pixel(i, 255, 127, 0)
         blinkt.show()
